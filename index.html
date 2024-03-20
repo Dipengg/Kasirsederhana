@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kasir Sederhana</title>
+</head>
+<body>
+    <h1>Aplikasi Kasir Sederhana</h1>
+    
+    <label for="productCode">Kode Produk:</label>
+    <input type="text" id="productCode">
+    <button onclick="findProduct()">Cari Produk</button>
+    <br><br>
+
+    <div id="productDetails" style="display:none;">
+        <p><strong>Nama Produk:</strong> <span id="productName"></span></p>
+        <p><strong>Harga:</strong> <span id="productPrice"></span></p>
+        <label for="quantity">Jumlah:</label>
+        <input type="number" id="quantity" min="1" value="1">
+        <button onclick="addToCart()">Tambah ke Keranjang</button>
+    </div>
+    
+    <hr>
+    
+    <h2>Keranjang Belanja</h2>
+    <ul id="cartList"></ul>
+    
+    <button onclick="checkout()">Checkout</button>
+    
+    <script src="kasir.js"></script>
+</body>
+</html>
