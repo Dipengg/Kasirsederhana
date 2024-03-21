@@ -4,30 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Kasir Sederhana</title>
+    <!-- Tambahkan link ke file CSS bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Aplikasi Kasir Sederhana - Toko Pakaian</h1>
-    
-    <label for="productCode">Kode Produk:</label>
-    <input type="text" id="productCode">
-    <button onclick="findProduct()">Cari Produk</button>
-    <br><br>
+    <div class="container">
+        <h1 class="text-center mt-5">Aplikasi Kasir Sederhana - Toko Pakaian</h1>
+        
+        <div class="form-group">
+            <label for="productCode">Kode Produk:</label>
+            <input type="text" id="productCode" class="form-control">
+        </div>
+        <button class="btn btn-primary" onclick="findProduct()">Cari Produk</button>
+        <br><br>
 
-    <div id="productDetails" style="display:none;">
-        <p><strong>Nama Produk:</strong> <span id="productName"></span></p>
-        <p><strong>Harga:</strong> <span id="productPrice"></span></p>
-        <label for="quantity">Jumlah:</label>
-        <input type="number" id="quantity" min="1" value="1">
-        <button onclick="addToCart()">Tambah ke Keranjang</button>
+        <div id="productDetails" style="display:none;" class="card">
+            <div class="card-body">
+                <h5 class="card-title">Produk Ditemukan</h5>
+                <p class="card-text"><strong>Nama Produk:</strong> <span id="productName"></span></p>
+                <p class="card-text"><strong>Harga:</strong> <span id="productPrice"></span></p>
+                <div class="form-group">
+                    <label for="quantity">Jumlah:</label>
+                    <input type="number" id="quantity" min="1" value="1" class="form-control">
+                </div>
+                <button class="btn btn-success" onclick="addToCart()">Tambah ke Keranjang</button>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <h2 class="text-center">Keranjang Belanja</h2>
+        <ul id="cartList" class="list-group"></ul>
+        
+        <button class="btn btn-warning mt-4" onclick="checkout()">Checkout</button>
+        
+        <script src="kasir.js"></script>
     </div>
-    
-    <hr>
-    
-    <h2>Keranjang Belanja</h2>
-    <ul id="cartList"></ul>
-    
-    <button onclick="checkout()">Checkout</button>
-    
-    <script src="kasir.js"></script>
 </body>
 </html>
