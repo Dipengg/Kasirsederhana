@@ -1,8 +1,8 @@
 // Data Produk (Kode Produk, Nama Produk, Harga) menggunakan array
 let products = [
-  { code: "001", name: "Kaos", price: 50000 },
-  { code: "002", name: "Celana", price: 75000 },
-  { code: "003", name: "Topi", price: 25000 },
+  { code: "P001", name: "Kaos", price: 50000 },
+  { code: "P002", name: "Celana", price: 75000 },
+  { code: "P003", name: "Topi", price: 25000 },
   // tambahkan produk lain di sini
 ];
 
