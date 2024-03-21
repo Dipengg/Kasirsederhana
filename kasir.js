@@ -1,7 +1,7 @@
 // Data Produk (Kode Produk, Nama Produk, Harga) menggunakan array
 let products = [
-  { code: "P001", name: "Kaos", price: 50000 },
-  { code: "P002", name: "Celana", price: 75000 },
+  { code: "001", name: "Kaos", price: 50000 },
+  { code: "002", name: "Celana", price: 75000 },
   { code: "P003", name: "Topi", price: 25000 },
   // tambahkan produk lain di sini
 ];
@@ -45,13 +45,35 @@ function updateCartView() {
   let cartList = document.getElementById("cartList");
   cartList.innerHTML = "";
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
       let listItem = document.createElement("li");
       listItem.textContent = `${item.name} x ${item.quantity} = ${item.price * item.quantity}`;
+      listItem.innerHTML += `<button onclick="editItem(${index})" class="btn btn-sm btn-primary mx-1">Edit</button>`;
+      listItem.innerHTML += `<button onclick="deleteItem(${index})" class="btn btn-sm btn-danger mx-1">Delete</button>`;
       cartList.appendChild(listItem);
       total += item.price * item.quantity;
   });
   cartList.innerHTML += `<li><strong>Total Belanja:</strong> ${total}</li>`;
+}
+
+// Fungsi untuk mengedit item dalam keranjang
+function editItem(index) {
+  let newItemQuantity = prompt("Masukkan jumlah baru:");
+  if (newItemQuantity !== null && !isNaN(newItemQuantity) && newItemQuantity > 0) {
+      cart[index].quantity = parseInt(newItemQuantity);
+      updateCartView();
+  } else {
+      alert("Masukan tidak valid.");
+  }
+}
+
+// Fungsi untuk menghapus item dari keranjang
+function deleteItem(index) {
+  let confirmation = confirm("Apakah Anda yakin ingin menghapus item ini?");
+  if (confirmation) {
+      cart.splice(index, 1);
+      updateCartView();
+  }
 }
 
 // Fungsi untuk melakukan checkout
