@@ -3,7 +3,7 @@ let products = [
   { code: "P001", name: "Kaos", price: 50000 },
   { code: "P002", name: "Celana", price: 75000 },
   { code: "P003", name: "Topi", price: 25000 },
-  // tambahkan produk lain di sini
+
 ];
 
 let cart = []; // Keranjang Belanja
